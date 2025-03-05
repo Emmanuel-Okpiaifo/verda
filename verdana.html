@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,8 +91,8 @@
         }
 
         h2 {
-            font-size: 4rem;
-            font-weight: 700;
+            font-size: 6rem;
+            font-weight: 700px;
             margin: 20px 0;
         }
 
@@ -129,7 +130,8 @@
             animation: fadeInFromBottom 1s ease-in-out;
         }
 
-        .section.talent p, .section.studios p {
+        .section.talent p,
+        .section.studios p {
             font-size: 1.1rem;
             font-weight: 400;
             line-height: 1.8;
@@ -142,6 +144,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -152,6 +155,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -300,8 +304,13 @@
                 padding: 8px 10px;
             }
         }
+
+        .back-arrow.hidden {
+            display: none;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="background"></div>
@@ -311,34 +320,42 @@
         <div>
             <a href="#" id="studios-link">Studios</a>
             <a href="#" id="talent-link">Talent</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="#">Contact</a>
         </div>
     </div>
 
-    <span class="back-arrow fade-in" id="back-arrow">&#8592;</span>
+    <span class="back-arrow fade-in hidden" id="back-arrow">&#8592;</span>
 
     <div class="container" id="container">
         <h2>VERDA</h2>
-        <p>"We shape the brands that shape culture—through exclusive talent, bold content, and digital-first innovation."</p>
+        <p>"We shape the brands that shape culture—through exclusive talent, bold content, and digital-first
+            innovation."</p>
         <a href="#" class="btn" id="enter-btn">Enter</a>
         <a href="#" class="btn hidden" id="studios-btn">Studios</a> &nbsp; &nbsp;
         <a href="#" class="btn hidden" id="talent-btn">Talent</a>
     </div>
-    
+
     <div class="section studios hidden" id="studios-section">
         <h1>VERDA STUDIOS</h1>
         <div class="content">
-            <p>What happens at Verda Production remains largely unseen. The results, however, are unmistakable. We shape the brands that shape culture through an in-house collective of digital natives who intuitively understand the evolving landscape. Our methodology is as exclusive as the success it creates.</p>
-            <p>For those with vision seeking to build enduring digital brands and compelling content, share your portfolio or existing channels with us for consideration.</p>
+            <p>What happens at Verda Production remains largely unseen. The results, however, are unmistakable. We shape
+                the brands that shape culture through an in-house collective of digital natives who intuitively
+                understand the evolving landscape. Our methodology is as exclusive as the success it creates.</p>
+            <p>For those with vision seeking to build enduring digital brands and compelling content, share your
+                portfolio or existing channels with us for consideration.</p>
             <a href="#" class="btn" id="request-details-studios-btn">Request Details</a>
         </div>
     </div>
-    
+
     <div class="section talent hidden" id="talent-section">
         <h1>VERDA TALENT</h1>
         <div class="content">
-            <p>Our network extends beyond our walls—a selective circle of creators who make an impact. Verda Talent connects brands with both our in-house voices and aligned external partners whose work stands apart. These carefully cultivated relationships remain exclusive, with access granted through direct engagement only.</p>
-            <p>Brands seeking to capture attention in ways that transcend conventional approaches: connect directly to explore partnerships with voices that resonate in today's evolving digital landscape.</p>
+            <p>Our network extends beyond our walls—a selective circle of creators who make an impact. Verda Talent
+                connects brands with both our in-house voices and aligned external partners whose work stands apart.
+                These carefully cultivated relationships remain exclusive, with access granted through direct engagement
+                only.</p>
+            <p>Brands seeking to capture attention in ways that transcend conventional approaches: connect directly to
+                explore partnerships with voices that resonate in today's evolving digital landscape.</p>
             <a href="#" class="btn" id="request-details-talent-btn">Request Details</a>
             <h3 class="email hidden" id="email-talent">marketing@verdastudios.com</h3>
         </div>
@@ -356,7 +373,8 @@
 
                     <div>
                         <label>Portfolio / Experience (Justification) *</label>
-                        <textarea name="portfolio" rows="4" placeholder="Enter your portfolio or experience" required></textarea>
+                        <textarea name="portfolio" rows="4" placeholder="Enter your portfolio or experience"
+                            required></textarea>
                     </div>
                     <div>
                         <label>Social Media Handles *</label>
@@ -368,7 +386,8 @@
                     </div>
                     <div>
                         <label>Favourite YouTube Video You've Seen *</label>
-                        <input type="text" name="youtube_video" placeholder="Enter the link to your favourite YouTube video" required>
+                        <input type="text" name="youtube_video"
+                            placeholder="Enter the link to your favourite YouTube video" required>
                     </div>
 
                     <!-- Submit Button -->
@@ -384,68 +403,73 @@
     </div>
 
     <script>
-        document.getElementById('enter-btn').addEventListener('click', function() {
+        document.getElementById('enter-btn').addEventListener('click', function () {
             document.getElementById('enter-btn').classList.add('hidden');
             document.getElementById('studios-btn').classList.remove('hidden');
             document.getElementById('talent-btn').classList.remove('hidden');
         });
 
-        document.getElementById('studios-link').addEventListener('click', function(event) {
+        document.getElementById('studios-link').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('container').classList.add('hidden');
             document.getElementById('studios-section').classList.remove('hidden');
             document.getElementById('studios-section').classList.add('fade-in');
+            document.getElementById('back-arrow').classList.remove('hidden');
         });
 
-        document.getElementById('studios-btn').addEventListener('click', function(event) {
+        document.getElementById('studios-btn').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('container').classList.add('hidden');
             document.getElementById('studios-section').classList.remove('hidden');
             document.getElementById('studios-section').classList.add('fade-in');
+            document.getElementById('back-arrow').classList.remove('hidden');
         });
 
-        document.getElementById('talent-link').addEventListener('click', function(event) {
+        document.getElementById('talent-link').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('container').classList.add('hidden');
             document.getElementById('talent-section').classList.remove('hidden');
             document.getElementById('talent-section').classList.add('fade-in');
+            document.getElementById('back-arrow').classList.remove('hidden');
         });
 
-        document.getElementById('talent-btn').addEventListener('click', function(event) {
+        document.getElementById('talent-btn').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('container').classList.add('hidden');
             document.getElementById('talent-section').classList.remove('hidden');
             document.getElementById('talent-section').classList.add('fade-in');
+            document.getElementById('back-arrow').classList.remove('hidden');
         });
 
-        document.getElementById('request-details-talent-btn').addEventListener('click', function(event) {
+        document.getElementById('request-details-talent-btn').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('request-details-talent-btn').classList.add('hidden');
             document.getElementById('email-talent').classList.remove('hidden');
             document.getElementById('email-talent').classList.add('fade-in');
         });
 
-        document.getElementById('request-details-studios-btn').addEventListener('click', function(event) {
+        document.getElementById('request-details-studios-btn').addEventListener('click', function (event) {
             event.preventDefault();
             document.getElementById('studios-section').classList.add('hidden');
             document.getElementById('form-section').classList.remove('hidden');
             document.getElementById('form-section').classList.add('fade-in');
         });
 
-        document.getElementById('submission-form').addEventListener('submit', function(event) {
+        document.getElementById('submission-form').addEventListener('submit', function (event) {
             // Simulate form submission success
-            setTimeout(function() {
+            setTimeout(function () {
                 document.getElementById('form-section').classList.add('hidden');
                 document.getElementById('thank-you-popup').style.display = 'block';
                 document.getElementById('submission-form').reset(); // Clear the form
             }, 500);
         });
 
-        document.getElementById('back-arrow').addEventListener('click', function() {
+        document.getElementById('back-arrow').addEventListener('click', function () {
             document.getElementById('container').classList.remove('hidden');
             document.getElementById('studios-section').classList.add('hidden');
             document.getElementById('talent-section').classList.add('hidden');
             document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('back-arrow').classList.add('hidden');
         });
 
         function closePopup() {
@@ -455,4 +479,5 @@
     </script>
 
 </body>
+
 </html>
