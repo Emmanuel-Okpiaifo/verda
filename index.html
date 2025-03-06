@@ -386,7 +386,7 @@
     </div>
 
     <div class="navbar">
-        <img src="./img/Email signature even.png" alt="Logo" id="logo">
+        <img src="./img/output-onlinepngtools.png" alt="Logo" id="logo">
         <div>
             <a href="#" id="studios-link">Studios</a>
             <a href="#" id="talent-link">Talent</a>
@@ -486,10 +486,10 @@
 
         document.getElementById('studios-link').addEventListener('click', function (event) {
             event.preventDefault();
-            document.getElementById('container').classList.add('hidden');
-            document.getElementById('studios-section').classList.remove('hidden');
+            document.getElementById('container').style.display = 'none';
+            document.getElementById('studios-section').style.display = 'block';
             document.getElementById('studios-section').classList.add('fade-in');
-            document.getElementById('talent-section').classList.add('hidden');
+            document.getElementById('talent-section').style.display = 'none';
             document.getElementById('back-arrow').classList.remove('hidden');
             document.getElementById('background').classList.remove('background-talent');
             document.getElementById('background').classList.add('background-studios', 'fade-in');
@@ -498,10 +498,10 @@
 
         document.getElementById('studios-btn').addEventListener('click', function (event) {
             event.preventDefault();
-            document.getElementById('container').classList.add('hidden');
-            document.getElementById('studios-section').classList.remove('hidden');
+            document.getElementById('container').style.display = 'none';
+            document.getElementById('studios-section').style.display = 'block';
             document.getElementById('studios-section').classList.add('fade-in');
-            document.getElementById('talent-section').classList.add('hidden');
+            document.getElementById('talent-section').style.display = 'none';
             document.getElementById('back-arrow').classList.remove('hidden');
             document.getElementById('background').classList.remove('background-talent');
             document.getElementById('background').classList.add('background-studios', 'fade-in');
@@ -510,10 +510,10 @@
 
         document.getElementById('talent-link').addEventListener('click', function (event) {
             event.preventDefault();
-            document.getElementById('container').classList.add('hidden');
-            document.getElementById('talent-section').classList.remove('hidden');
+            document.getElementById('container').style.display = 'none';
+            document.getElementById('talent-section').style.display = 'block';
             document.getElementById('talent-section').classList.add('fade-in');
-            document.getElementById('studios-section').classList.add('hidden');
+            document.getElementById('studios-section').style.display = 'none';
             document.getElementById('back-arrow').classList.remove('hidden');
             document.getElementById('background').classList.remove('background-studios');
             document.getElementById('background').classList.add('background-talent', 'fade-in');
@@ -521,10 +521,10 @@
 
         document.getElementById('talent-btn').addEventListener('click', function (event) {
             event.preventDefault();
-            document.getElementById('container').classList.add('hidden');
-            document.getElementById('talent-section').classList.remove('hidden');
+            document.getElementById('container').style.display = 'none';
+            document.getElementById('talent-section').style.display = 'block';
             document.getElementById('talent-section').classList.add('fade-in');
-            document.getElementById('studios-section').classList.add('hidden');
+            document.getElementById('studios-section').style.display = 'none';
             document.getElementById('back-arrow').classList.remove('hidden');
             document.getElementById('background').classList.remove('background-studios');
             document.getElementById('background').classList.add('background-talent', 'fade-in');
@@ -539,8 +539,8 @@
 
         document.getElementById('request-details-studios-btn').addEventListener('click', function (event) {
             event.preventDefault();
-            document.getElementById('studios-section').classList.add('hidden');
-            document.getElementById('form-section').classList.remove('hidden');
+            document.getElementById('studios-section').style.display = 'none';
+            document.getElementById('form-section').style.display = 'block';
             document.getElementById('form-section').classList.add('fade-in');
         });
 
@@ -554,10 +554,10 @@
         });
 
         document.getElementById('back-arrow').addEventListener('click', function () {
-            document.getElementById('container').classList.remove('hidden');
-            document.getElementById('studios-section').classList.add('hidden');
-            document.getElementById('talent-section').classList.add('hidden');
-            document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('container').style.display = 'block';
+            document.getElementById('studios-section').style.display = 'none';
+            document.getElementById('talent-section').style.display = 'none';
+            document.getElementById('form-section').style.display = 'none';
             document.getElementById('back-arrow').classList.add('hidden');
             document.getElementById('background').classList.remove('background-studios', 'fade-in');
             document.getElementById('background').classList.remove('background-talent', 'fade-in');
@@ -565,10 +565,10 @@
         });
 
         document.getElementById('logo').addEventListener('click', function () {
-            document.getElementById('container').classList.remove('hidden');
-            document.getElementById('studios-section').classList.add('hidden');
-            document.getElementById('talent-section').classList.add('hidden');
-            document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('container').style.display = 'block';
+            document.getElementById('studios-section').style.display = 'none';
+            document.getElementById('talent-section').style.display = 'none';
+            document.getElementById('form-section').style.display = 'none';
             document.getElementById('back-arrow').classList.add('hidden');
             document.getElementById('background').classList.remove('background-studios', 'fade-in');
             document.getElementById('background').classList.remove('background-talent', 'fade-in');
@@ -577,7 +577,7 @@
 
         function closePopup() {
             document.getElementById('thank-you-popup').style.display = 'none';
-            document.getElementById('studios-section').classList.remove('hidden');
+            document.getElementById('studios-section').style.display = 'block';
         }
 
         function resetTalentSection() {
