@@ -39,6 +39,23 @@
             animation: fadeIn 2s ease-in-out;
         }
 
+        .background-studios {
+            background: url('./img/WhatsApp\ Image\ 2025-03-05\ at\ 12.10.11_a442ded8.jpg') no-repeat center center/cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .background-talent {
+            background: url('./img/WhatsApp\ Image\ 2025-03-05\ at\ 12.10.11_b8e5b609.jpg') no-repeat center center/cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .background-studios.fade-in,
+        .background-talent.fade-in {
+            opacity: 1;
+        }
+
         .navbar {
             position: absolute;
             top: 0;
@@ -308,15 +325,68 @@
         .back-arrow.hidden {
             display: none;
         }
+
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('./img/WhatsApp\ Image\ 2025-03-05\ at\ 12.10.09_8c3a3350.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+        }
+
+        .loading-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loading-bar {
+            width: 100%;
+            max-width: 300px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            width: 0;
+            height: 100%;
+            background: white;
+            animation: loading 2s linear forwards;
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div class="background" id="background"></div>
 
-    <div class="background"></div>
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <h2>VERDA</h2>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loading-progress"></div>
+            </div>
+        </div>
+    </div>
 
     <div class="navbar">
-        <img src="./img/Email signature even.png" alt="Logo">
+        <img src="./img/Email signature even.png" alt="Logo" id="logo">
         <div>
             <a href="#" id="studios-link">Studios</a>
             <a href="#" id="talent-link">Talent</a>
@@ -326,10 +396,10 @@
 
     <span class="back-arrow fade-in hidden" id="back-arrow">&#8592;</span>
 
-    <div class="container" id="container">
+    <div class="container" id="container" style="display: none;">
         <h2>VERDA</h2>
-        <p>"We shape the brands that shape culture—through exclusive talent, bold content, and digital-first
-            innovation."</p>
+        <p>"Building brands and cultivating voices that shape culture, through methods refined in privacy and results
+            witnessed by billions."</p>
         <a href="#" class="btn" id="enter-btn">Enter</a>
         <a href="#" class="btn hidden" id="studios-btn">Studios</a> &nbsp; &nbsp;
         <a href="#" class="btn hidden" id="talent-btn">Talent</a>
@@ -341,8 +411,6 @@
             <p>What happens at Verda Production remains largely unseen. The results, however, are unmistakable. We shape
                 the brands that shape culture through an in-house collective of digital natives who intuitively
                 understand the evolving landscape. Our methodology is as exclusive as the success it creates.</p>
-            <p>For those with vision seeking to build enduring digital brands and compelling content, share your
-                portfolio or existing channels with us for consideration.</p>
             <a href="#" class="btn" id="request-details-studios-btn">Request Details</a>
         </div>
     </div>
@@ -350,12 +418,10 @@
     <div class="section talent hidden" id="talent-section">
         <h1>VERDA TALENT</h1>
         <div class="content">
-            <p>Our network extends beyond our walls—a selective circle of creators who make an impact. Verda Talent
+            <p>Our network extends beyond our walls-a selective circle of creators who make an impact. Verda Talent
                 connects brands with both our in-house voices and aligned external partners whose work stands apart.
                 These carefully cultivated relationships remain exclusive, with access granted through direct engagement
                 only.</p>
-            <p>Brands seeking to capture attention in ways that transcend conventional approaches: connect directly to
-                explore partnerships with voices that resonate in today's evolving digital landscape.</p>
             <a href="#" class="btn" id="request-details-talent-btn">Request Details</a>
             <h3 class="email hidden" id="email-talent">marketing@verdastudios.com</h3>
         </div>
@@ -403,6 +469,15 @@
     </div>
 
     <script>
+        document.body.style.overflow = 'hidden'; // Add this line to prevent page shifting
+
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loading-screen').style.display = 'none';
+                document.getElementById('container').style.display = 'block';
+            }, 2000);
+        });
+
         document.getElementById('enter-btn').addEventListener('click', function () {
             document.getElementById('enter-btn').classList.add('hidden');
             document.getElementById('studios-btn').classList.remove('hidden');
@@ -414,7 +489,11 @@
             document.getElementById('container').classList.add('hidden');
             document.getElementById('studios-section').classList.remove('hidden');
             document.getElementById('studios-section').classList.add('fade-in');
+            document.getElementById('talent-section').classList.add('hidden');
             document.getElementById('back-arrow').classList.remove('hidden');
+            document.getElementById('background').classList.remove('background-talent');
+            document.getElementById('background').classList.add('background-studios', 'fade-in');
+            resetTalentSection();
         });
 
         document.getElementById('studios-btn').addEventListener('click', function (event) {
@@ -422,7 +501,11 @@
             document.getElementById('container').classList.add('hidden');
             document.getElementById('studios-section').classList.remove('hidden');
             document.getElementById('studios-section').classList.add('fade-in');
+            document.getElementById('talent-section').classList.add('hidden');
             document.getElementById('back-arrow').classList.remove('hidden');
+            document.getElementById('background').classList.remove('background-talent');
+            document.getElementById('background').classList.add('background-studios', 'fade-in');
+            resetTalentSection();
         });
 
         document.getElementById('talent-link').addEventListener('click', function (event) {
@@ -430,7 +513,10 @@
             document.getElementById('container').classList.add('hidden');
             document.getElementById('talent-section').classList.remove('hidden');
             document.getElementById('talent-section').classList.add('fade-in');
+            document.getElementById('studios-section').classList.add('hidden');
             document.getElementById('back-arrow').classList.remove('hidden');
+            document.getElementById('background').classList.remove('background-studios');
+            document.getElementById('background').classList.add('background-talent', 'fade-in');
         });
 
         document.getElementById('talent-btn').addEventListener('click', function (event) {
@@ -438,7 +524,10 @@
             document.getElementById('container').classList.add('hidden');
             document.getElementById('talent-section').classList.remove('hidden');
             document.getElementById('talent-section').classList.add('fade-in');
+            document.getElementById('studios-section').classList.add('hidden');
             document.getElementById('back-arrow').classList.remove('hidden');
+            document.getElementById('background').classList.remove('background-studios');
+            document.getElementById('background').classList.add('background-talent', 'fade-in');
         });
 
         document.getElementById('request-details-talent-btn').addEventListener('click', function (event) {
@@ -470,11 +559,30 @@
             document.getElementById('talent-section').classList.add('hidden');
             document.getElementById('form-section').classList.add('hidden');
             document.getElementById('back-arrow').classList.add('hidden');
+            document.getElementById('background').classList.remove('background-studios', 'fade-in');
+            document.getElementById('background').classList.remove('background-talent', 'fade-in');
+            resetTalentSection();
+        });
+
+        document.getElementById('logo').addEventListener('click', function () {
+            document.getElementById('container').classList.remove('hidden');
+            document.getElementById('studios-section').classList.add('hidden');
+            document.getElementById('talent-section').classList.add('hidden');
+            document.getElementById('form-section').classList.add('hidden');
+            document.getElementById('back-arrow').classList.add('hidden');
+            document.getElementById('background').classList.remove('background-studios', 'fade-in');
+            document.getElementById('background').classList.remove('background-talent', 'fade-in');
+            resetTalentSection();
         });
 
         function closePopup() {
             document.getElementById('thank-you-popup').style.display = 'none';
             document.getElementById('studios-section').classList.remove('hidden');
+        }
+
+        function resetTalentSection() {
+            document.getElementById('request-details-talent-btn').classList.remove('hidden');
+            document.getElementById('email-talent').classList.add('hidden');
         }
     </script>
 
